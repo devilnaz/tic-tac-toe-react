@@ -3,7 +3,8 @@ body {
   margin: 20px;
 }
 
-ol, ul {
+ol,
+ul {
   padding-left: 30px;
 }
 
@@ -21,15 +22,15 @@ ol, ul {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 50px;
+  height: 50px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 50px;
 }
 
 .square:focus {
@@ -43,8 +44,57 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.game-block {
+  max-width: 160px;
+  width: 100%;
+}
+
+.game-block-header {
+  height: 36px;
 }
 
 .game-info {
-  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.game-info > ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  margin-left: 16px;
+}
+
+.game-info > ol li {
+  margin-top: 5px;
+}
+
+.game-info > ol li:first-child {
+  margin-top: 0;
+}
+
+.game-status {
+  font-size: 16px;
+  text-align: center;
+}
+.game-board {
+  text-align: center;
+}
+
+.game-board > div {
+  display: inline-block;
+}
+
+.game-btn {
+  border: 0;
+  padding: 4px 8px;
+  border-bottom: 1px solid #61dafb;
+  background-color: #20232a;
+  color: #61dafb;
+  border-radius: 5px;
+  cursor: pointer;
 }

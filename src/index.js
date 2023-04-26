@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 
 function Square(props) {
@@ -88,7 +88,9 @@ class Game extends React.Component {
 
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="game-btn" onClick={() => this.jumpTo(move)}>
+            {desc}
+          </button>
         </li>
       );
     });
@@ -102,12 +104,21 @@ class Game extends React.Component {
 
     return (
       <div className="game">
-        <div className="game-board">
-          <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+        <div className="game-block">
+          <div className="game-block-header">
+            <div className="game-info">
+              <div className="game-status">{status}</div>
+            </div>
+          </div>
+          <div className="game-board">
+            <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+          </div>
         </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+        <div className="game-block">
+          <div className="game-block-header"></div>
+          <div className="game-info">
+            <ol>{moves}</ol>
+          </div>
         </div>
       </div>
     );
@@ -128,6 +139,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      // сравнивает одинаковые знаки
       return squares[a];
     }
   }
@@ -136,5 +148,5 @@ function calculateWinner(squares) {
 
 // ========================================
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 root.render(<Game />);
